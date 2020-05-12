@@ -1,0 +1,387 @@
+// Variable Declarations
+$primary-color-dark: #455a64;
+$primary-color: #607d8b;
+$primary-color-light: #cfd8dc;
+$primary-color-text: #ffffff;
+$accent-color: #ffc107;
+$primary-text-color: #212121;
+$secondary-text-color: #757575;
+$divider-color: #bdbdbd;
+
+@mixin button-main() {
+  .btn-outline-primary {
+    border-color: $accent-color;
+    color: $accent-color;
+  }
+  .btn-outline-primary:hover {
+    background: $accent-color;
+    color: $primary-text-color !important;
+    border-color: $accent-color;
+  }
+  .btn-outline-primary:active {
+    background: $accent-color !important;
+    border-color: $accent-color !important;
+    color: $primary-text-color !important;
+  }
+}
+
+@mixin button-main-2() {
+  .btn-primary {
+    border-color: $accent-color;
+    background: $accent-color;
+    color: $primary-text-color !important;
+    font-weight: 400 !important;
+  }
+  .btn-primary:hover {
+    background: none;
+    color: $accent-color !important;
+    border-color: $accent-color;
+  }
+  .btn-primary:active {
+    background: $accent-color !important;
+    border-color: $accent-color !important;
+    color: $primary-text-color !important;
+  }
+}
+
+@mixin header() {
+  font-weight: 700;
+  text-transform: uppercase;
+  mark {
+    background: $accent-color;
+    color: $primary-text-color;
+    padding: 1%;
+  }
+}
+
+@mixin secondary-btn {
+  .btn-outline-secondary {
+    border-color: $secondary-text-color;
+    color: $secondary-text-color;
+  }
+  .btn-outline-secondary:hover {
+    background: $secondary-text-color;
+  }
+}
+#navbar {
+  button {
+    border-radius: 0px;
+  }
+  button:focus {
+    outline-color: $accent-color;
+    border-radius: 0px;
+  }
+}
+// Begin HTML Styling
+
+// Global CSS
+html,
+body {
+  font-family: "Open Sans", sans-serif;
+  color: $primary-text-color;
+  position: relative !important;
+  overflow-x: hidden;
+  background: lighten($primary-color-light, 30%);
+  font-size: 16px;
+}
+::selection {
+  background: rgba($accent-color, 0.5);
+}
+@include button-main();
+@include button-main-2();
+@include secondary-btn();
+a {
+  text-decoration: none !important;
+}
+
+hr {
+  height: 0.25rem;
+  background: $accent-color;
+  width: 175px;
+  border: 0px;
+  margin: 0;
+}
+
+.btn {
+  border-radius: 0px;
+}
+.btn:active {
+  box-shadow: none !important;
+}
+.btn:focus {
+  box-shadow: none !important;
+}
+
+body::-webkit-scrollbar {
+  width: 0.25em;
+}
+
+body::-webkit-scrollbar-track {
+  background: $primary-color-dark;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: $accent-color;
+  outline: 1px solid slategrey;
+}
+// Navbar CSS
+.bg-dark {
+  background: $primary-color-dark !important;
+}
+.navbar-brand {
+  border: 1px $accent-color solid;
+  padding: 5px;
+  font-weight: 700;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  span {
+    color: $accent-color;
+  }
+}
+.nav-item {
+  margin: 0 10px;
+  .nav-link {
+    font-size: 1rem;
+    text-transform: uppercase;
+    font-weight: 300;
+  }
+}
+a.dropdown-item.selected {
+  background: $accent-color !important;
+  font-weight: 300;
+  text-transform: uppercase;
+}
+
+a.dropdown-item:active {
+  background: $accent-color !important;
+  color: $primary-color-text;
+}
+
+// Hero CSS
+
+#hero {
+  background-color: $primary-color-dark;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
+    url("../images/bg.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  .row {
+    min-height: 100vh;
+  }
+  h1.display-1 {
+    font-weight: 300;
+    color: white;
+  }
+  span {
+    color: $accent-color;
+    font-weight: 300;
+  }
+  p {
+    color: white;
+    font-weight: 300;
+  }
+  .btn {
+    margin: 0 5px;
+  }
+}
+
+.fade {
+  opacity: 1;
+}
+
+// About CSS
+
+#about {
+  .row {
+    min-height: 650px;
+  }
+  h1 {
+    @include header();
+  }
+  p {
+    padding: 1%;
+  }
+}
+// Features CSS
+#features {
+  background: $primary-color-dark;
+  .row {
+    min-height: 650px;
+  }
+  .fa-border {
+    border: 1px solid $accent-color;
+    color: $primary-color-light;
+    transition: background 0.25s, color 0.25s, margin 0.25s;
+    transition-timing-function: ease-in-out;
+    margin-top: 5%;
+    margin: 3% 0;
+    border-radius: 0px;
+  }
+  .fa-border:hover {
+    background: $accent-color;
+    color: $primary-text-color;
+    margin: 5%;
+  }
+
+  h1 {
+    @include header();
+  }
+  p {
+    color: $primary-color-light;
+    padding: 5%;
+    margin: 3%;
+  }
+}
+// Call-to-Action CSS
+#cta {
+  background-image: linear-gradient(
+      rgba(0, 0, 0, 0.8),
+      rgba($accent-color, 0.8)
+    ),
+    url("../images/endstone_texture.png");
+  background-position: center;
+  background-attachment: fixed;
+  .row {
+    min-height: 450px;
+  }
+  h1 {
+    color: white;
+  }
+  p.lead {
+    color: white;
+  }
+}
+// Staff CSS
+#staff {
+  margin: 3% 0;
+  .row {
+    min-height: 650px;
+  }
+  h1 {
+    @include header();
+  }
+  p.lead {
+    font-weight: 400;
+    margin: 0;
+  }
+  p.muted {
+    color: $secondary-text-color;
+    font-weight: 300;
+    text-transform: uppercase;
+    margin: 0;
+  }
+  img {
+    border: 5px solid transparent;
+    transition: border 0.5s, filter 0.5s;
+    transition-timing-function: ease-in-out;
+    filter: grayscale(0%);
+  }
+  img:hover {
+    border: 5px solid $accent-color;
+    filter: grayscale(50%);
+  }
+}
+// Footer Css
+#footer {
+  background: $primary-color-dark;
+  .row {
+    min-height: 50px;
+  }
+  p {
+    color: $primary-color-light;
+    text-align: center;
+    font-weight: 400;
+  }
+}
+// Media Queries
+$mobile-width: 768px;
+@media only screen and (max-width: $mobile-width) {
+  // Navbar CSS
+
+  .nav-item {
+    margin: auto;
+  }
+  .navbar {
+    .btn-primary {
+      padding: 10px;
+    }
+  }
+  // Hero CSS
+  #hero {
+    margin: auto;
+
+    h1 {
+      text-transform: uppercase;
+      text-align: center;
+    }
+    p {
+      text-align: center;
+    }
+    .mobile {
+      text-align: center;
+    }
+  }
+  // About CSS
+  #about {
+    text-align: center;
+    h1 {
+      font-size: 2rem;
+    }
+  }
+  // CTA CSS
+  #cta {
+    text-align: center;
+    iframe {
+    }
+  }
+  // Staff CSS
+  #staff {
+    text-align: center;
+  }
+}
+
+// Nexxy CSS
+#nexxy-coming-soon {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
+    url("https://images.unsplash.com/photo-1515524738708-327f6b0037a7?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=ff90e72db15176afc516fac82d04f14f&auto=format&fit=crop&w=2550&q=80");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  .row {
+    min-height: 100vh;
+  }
+  h1 {
+    color: white;
+  }
+}
+
+#nexxy-home {
+  background-image: linear-gradient(
+      rgba(0, 0, 0, 0.8),
+      rgba($primary-color-dark, 0.8)
+    ),
+    url("../images/nexxy_bg.jpg");
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  .row {
+    min-height: 650px;
+  }
+  span {
+    color: $accent-color;
+    font-weight: 400;
+  }
+  h1 {
+    color: white;
+  }
+}
+
+#nexxy-about {
+  background-color: $primary-color-dark;
+  .row {
+    min-height: 800px;
+  }
+}

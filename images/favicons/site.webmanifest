@@ -1,0 +1,14 @@
+{
+    "name": "Slab City",
+    "short_name": "Slab City",
+    "icons": [
+        {
+            "src": "android-chrome-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        }
+    ],
+    "theme_color": "#455a64",
+    "background_color": "#455a64",
+    "display": "standalone"
+}
